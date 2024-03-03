@@ -55,6 +55,10 @@ io.on('connection', (socket) => {
         });
     });
 
+    socket.on("disconnect", () => {
+        io.sockets.emit('room_change', publicRooms());
+    })
+
     socket.on("message", (msg, roomName, callback) => {
         console.log("got message");
         socket.to(roomName).emit("message", `${socket.nickname} : ${msg}`);

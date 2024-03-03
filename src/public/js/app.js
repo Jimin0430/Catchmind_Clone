@@ -43,12 +43,10 @@ function sendMessage(event){
 }
 
 function drawOnCanvas(x, y, isDrawing) {
-    if (!isDrawing) return;
-    //if (x === undefined || y === undefined) return;
-    //x,y 출력
-    console.log(x, y);
+    // if (!isDrawing) return;
 
-    //선 설정
+    //console.log(x, y);
+
     ctx.fillStyle = "black";
     ctx.lineWidth = 2;
     ctx.lineCap = "round";
@@ -57,10 +55,11 @@ function drawOnCanvas(x, y, isDrawing) {
         ctx.lineTo(x, y);
         ctx.stroke();
     } else {
-        ctx.beginPath(); // 새 경로 시작
+        ctx.beginPath(); // 여기서 새로운 경로를 시작합니다.
         ctx.moveTo(x, y);
     }
 }
+
 
 
 joinForm.addEventListener("submit", handleJoin);
@@ -133,4 +132,13 @@ canvas.addEventListener("mouseup", () => {
     painting = false;
     ctx.beginPath();
     socket.emit("draw", { isDrawing: false });
+});
+
+//캔버스 밖으로 나갔을 때
+canvas.addEventListener("mouseout", () => {
+    if (painting) {
+        painting = false;
+        ctx.beginPath(); // 클릭 해제
+        socket.emit("draw", { isDrawing: false });
+    }
 });
