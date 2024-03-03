@@ -1,0 +1,32 @@
+doctype html
+html(lang="en")
+    head 
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible",)
+        met(name="viewport", content="width=device-width, height=device-height")
+        title 캐치마인드 
+        link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        style.
+            #canvas {
+                border: 1px solid black;
+            }
+    body
+        header
+            h1 캐치마인드
+        main 
+            div#welcome
+                form#joinForm
+                    input(placeholder="room name", required, type="text")
+                    button Enter Room
+            #room
+                h3
+                form#nickForm
+                    input(placeholder="set nickname", required, type="text")
+                    button Save
+                ul 
+                form#messageForm
+                    input(placeholder="message", required, type="text")
+                    button Send
+                canvas#canvas(width="500", height="500")
+        script(src="/socket.io/socket.io.js")
+        script(src="/public/js/app.js")
