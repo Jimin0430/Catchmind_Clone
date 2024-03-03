@@ -1,14 +1,18 @@
-doctype html 
+doctype html
 html(lang="en")
     head 
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible",)
         met(name="viewport", content="width=device-width, height=device-height")
-        title Takanshi Rikka 
+        title 캐치마인드 
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
+        style.
+            #canvas {
+                border: 1px solid black;
+            }
     body
         header
-            h1 Takanashi Rikkka
+            h1 캐치마인드
         main 
             div#welcome
                 form#joinForm
@@ -23,6 +27,6 @@ html(lang="en")
                 form#messageForm
                     input(placeholder="message", required, type="text")
                     button Send
+                canvas#canvas(width="500", height="500")
         script(src="/socket.io/socket.io.js")
         script(src="/public/js/app.js")
-        
