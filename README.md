@@ -1,3 +1,2 @@
-#NOOM
-
-Zoom Clone using Nodejs, WebRTC and Websockets
+# Catchmind_Clone
+캐치마인드
